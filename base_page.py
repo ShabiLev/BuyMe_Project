@@ -29,11 +29,12 @@ class BasePage:
     def take_screenshot(self):
         count = 1
         screenshot = ImageGrab.grab()
-        if os.path.exists(logfilePath + 'error' + str(count) + '.png'):
+        # if os.path.exists(logfilePath + 'error in ' + str(count) + '.png'):
+        if os.path.exists(f"{logfilePath} error {str(count)}.png"):
             count += 1
-            screenshot.save(logfilePath + 'error' + str(count) + '.png')
+            screenshot.save(f"{logfilePath} error {str(count)}.png")
         else:
-            screenshot.save(logfilePath + 'error' + str(count) + '.png')
+            screenshot.save(f"{logfilePath} error {str(count)}.png")
 
     def goto_link(self, link):
         try:

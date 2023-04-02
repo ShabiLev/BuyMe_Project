@@ -18,6 +18,7 @@ class TestBuyme(TestCase):
 
     def test_login_button(self):
         self.home_page.click_on_login()
+        # self.home_page.login_success()
         self.home_page.click_on_register()
         # self.home_page.enter_first_name()
         # time.sleep(20)
