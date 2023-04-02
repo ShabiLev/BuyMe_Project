@@ -10,6 +10,7 @@ packages = [{include = "buyme_project"}]
 python = "^3.11"
 selenium = "^4.8.3"
 requests = "^2.28.2"
+pillow = "^9.5.0"
 
 
 [build-system]

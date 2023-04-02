@@ -19,10 +19,11 @@ class TestBuyme(TestCase):
     def test_login_button(self):
         self.home_page.click_on_login()
         self.home_page.click_on_register()
-        time.sleep(10)
+        # self.home_page.enter_first_name()
+        # time.sleep(20)
 
     def tearDown(self):
         driver.quit()
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()

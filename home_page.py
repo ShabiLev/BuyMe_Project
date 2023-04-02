@@ -4,14 +4,17 @@ from base_page import BasePage as base
 
 class Constants:
     login_register = By.CLASS_NAME, "notSigned"
-    register = By.CLASS_NAME, "register-or-login"
-    login_email = By.ID, "ember1852"  # id="ember1900" type="email"
-    login_password = "ember1907"  # id="ember1907" type="password"
-    login_button = ""  # id="ember1916" required type="submit"
-    register_first_name = ""  # id="ember1955" input#ember1878
-    register_email = ""  # id="ember1962" required type="email"
-    register_password = ""  # id="valPass"
-    register_password_conf = ""  # id="ember1976"
+    # register = By.LINK_TEXT, "להרשמה"
+    register = (By.XPATH, "//input[@data-ember-action='1847' and @class='text-link theme']")
+    # < span class ="text-link theme" data-ember-action="1847" andiallelmwithtext="16" > להרשמה < / span >
+    # login_email =
+    # login_password =
+    # login_button =
+    #
+    register_first_name = By.ID, "ember1932"
+    # register_email =
+    # register_password =
+    # register_password_conf =
 
 
 class HomePage(base):
@@ -26,3 +29,6 @@ class HomePage(base):
 
     def click_on_register(self):
         base.wait_and_click_on_element(self, Constants.register)
+
+    def enter_first_name(self):
+        base.wait_and_enter_text(self, Constants.register_first_name, 'firstName')
