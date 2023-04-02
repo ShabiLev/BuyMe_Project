@@ -3,9 +3,9 @@ from base_page import BasePage as base
 
 
 class Constants:
-    login_register = By.CLASS_NAME, "notSigned"  # class="notSigned" data-ember-action="1011"
-    register = "text-link theme"  # data-ember-action="1895" class="text-link theme"
-    login_email = "ember1900"  # id="ember1900" type="email"
+    login_register = By.CLASS_NAME, "notSigned"
+    register = By.CLASS_NAME, "register-or-login"
+    login_email = By.ID, "ember1852"  # id="ember1900" type="email"
     login_password = "ember1907"  # id="ember1907" type="password"
     login_button = ""  # id="ember1916" required type="submit"
     register_first_name = ""  # id="ember1955" input#ember1878
@@ -23,3 +23,6 @@ class HomePage(base):
     def click_on_login(self):
         base.wait_and_click_on_element(self, Constants.login_register)
         print(self.driver.current_url)
+
+    def click_on_register(self):
+        base.wait_and_click_on_element(self, Constants.register)
