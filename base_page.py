@@ -55,9 +55,9 @@ class BasePage:
         except TimeoutException:
             log_to_file(f'Timed out waiting for element {locator}')
 
-    def enter_text(self, locator):
+    def enter_text(self, locator, text):
         try:
-            WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locatore)).send_keys(text)
+            WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
         except TimeoutException:
             log_to_file(f'Timed out waiting for element {locator}')
 
