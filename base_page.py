@@ -1,4 +1,8 @@
 import os
+from datetime import datetime
+
+import allure
+from allure_commons.types import AttachmentType
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -15,12 +19,17 @@ driver = webdriver.Chrome(service=Service("C:\\Users\\shabil\\Downloads\\chromed
 timeout = 10
 
 
+def get_current_time():
+    now = datetime.now()
+    cur_date_time = now.strftime("%d-%m-%Y %H:%M:%S")
+    return cur_date_time
+
 class BasePage:
     # Configure logging to write to a file
     logging.basicConfig(
         filename=logfilePath + "BuyMe_log.txt",
         filemode='a',
-        format="%(asctime)s, %(name)s %(levelname)s %(message)s",
+        format="%(asctime)s, %(name)s %(levelname)s %(message)s \n",
         datefmt="%H:%M:%S",
         level=logging.ERROR)
 
@@ -31,11 +40,13 @@ class BasePage:
         count = 1
         screenshot = ImageGrab.grab()
         # if os.path.exists(logfilePath + 'error in ' + str(count) + '.png'):
-        if os.path.exists(f"{logfilePath} error {str(count)}.png"):
+        if os.path.exists(f"{logfilePath} {get_current_time()} error.png"):
             count += 1
-            screenshot.save(f"{logfilePath} error {str(count)}.png")
+            screenshot.save(f"{logfilePath} {get_current_time()} error.png")
         else:
-            screenshot.save(f"{logfilePath} error {str(count)}.png")
+            screenshot.save(f"{logfilePath} {get_current_time()} error.png")
+
+
 
     def goto_link(self, link):
         try:
