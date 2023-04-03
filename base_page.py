@@ -46,8 +46,6 @@ class BasePage:
         else:
             screenshot.save(f"{logfilePath} {get_current_time()} error.png")
 
-
-
     def goto_link(self, link):
         try:
             driver.get(link)
@@ -59,6 +57,14 @@ class BasePage:
     def wait_and_click_on_element(self, locator):
         try:
             WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).click()
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot()
+
+    def wait_and_click_on_above_element(self, relative, elem_type, elem_val):
+        try:
+            relative_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(relative))
+            driver.find_element(locate_with(elem_type, elem_val).above(relative_element)).click()
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot()
