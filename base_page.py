@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 
 import allure
@@ -37,11 +38,9 @@ class BasePage:
         self.driver = driver
 
     def take_screenshot(self):
-        count = 1
         screenshot = ImageGrab.grab()
-        # if os.path.exists(logfilePath + 'error in ' + str(count) + '.png'):
         if os.path.exists(f"{logfilePath} {get_current_time()} error.png"):
-            count += 1
+            time.sleep(0.1)
             screenshot.save(f"{logfilePath} {get_current_time()} error.png")
         else:
             screenshot.save(f"{logfilePath} {get_current_time()} error.png")
