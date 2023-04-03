@@ -2,6 +2,8 @@ import os
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.relative_locator import locate_with
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
@@ -10,17 +12,16 @@ from PIL import ImageGrab
 
 logfilePath = "C:\\Users\\" + os.getlogin() + "\\OneDrive - Ofakim Group\\Desktop\\BuyMe_Files\\"
 driver = webdriver.Chrome(service=Service("C:\\Users\\shabil\\Downloads\\chromedriver_win32\\chromedriver.exe"))
-# chrome_options = Options
-# chrome_options.add_argument("--start-maximized")
 timeout = 10
 
 
 class BasePage:
-    driver = webdriver.Chrome(service=Service("C:\\Users\\shabil\\Downloads\\chromedriver_win32\\chromedriver.exe"))
-
     # Configure logging to write to a file
     logging.basicConfig(
         filename=logfilePath + "BuyMe_log.txt",
+        filemode='a',
+        format="%(asctime)s, %(name)s %(levelname)s %(message)s",
+        datefmt="%H:%M:%S",
         level=logging.ERROR)
 
     def __init__(self, driver):
@@ -47,6 +48,14 @@ class BasePage:
     def wait_and_click_on_element(self, locator):
         try:
             WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).click()
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot()
+
+    def wait_and_click_on_below_element(self, relative, elem_type, elem_val):
+        try:
+            relative_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(relative))
+            driver.find_element(locate_with(elem_type, elem_val).below(relative_element)).click()
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot()

@@ -1,8 +1,8 @@
 import time
-import unittest
 from unittest import TestCase
+import base_page
 from base_page import BasePage as base, driver
-from home_page import HomePage
+from pages.home_page import HomePage
 
 
 class TestBuyme(TestCase):
@@ -10,18 +10,15 @@ class TestBuyme(TestCase):
     def __init__(self, methodname: str = ...):
         super().__init__(methodname)
 
-
     def setUp(self):
-        driver = base.driver
-        self.home_page = HomePage(base.driver)
+        self.home_page = HomePage(base_page.driver)
         base.goto_link(driver, "https://buyme.co.il/")
 
     def test_login_button(self):
         self.home_page.click_on_login()
-        # self.home_page.login_success()
         self.home_page.click_on_register()
-        # self.home_page.enter_first_name()
-        # time.sleep(20)
+
+        time.sleep(10)
 
     def tearDown(self):
         driver.quit()
