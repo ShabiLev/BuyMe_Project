@@ -15,8 +15,9 @@ import logging
 import traceback
 from PIL import ImageGrab
 
-logfilePath = "C:\\Users\\" + os.getlogin() + "\\OneDrive - Ofakim Group\\Desktop\\BuyMe_Files\\"
-driver = webdriver.Chrome(service=Service("C:\\Users\\shabil\\Downloads\\chromedriver_win32\\chromedriver.exe"))
+logfilePath = "C:\\Users\\" + os.getlogin() + "\\Downloads\\Python Automation Files\\BuyMe_Project\\Errors\\"
+driver = webdriver.Chrome(service=Service("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Drivers\\chromedriver_win32\\chromedriver.exe"))
+
 timeout = 10
 
 
@@ -39,11 +40,11 @@ class BasePage:
 
     def take_screenshot(self):
         screenshot = ImageGrab.grab()
-        if os.path.exists(f"{logfilePath} {get_current_time()} error.png"):
+        if os.path.exists(f"{logfilePath} {get_current_time()}_ScreenShot.png"):
             time.sleep(0.1)
-            screenshot.save(f"{logfilePath} {get_current_time()} error.png")
+            screenshot.save(f"{logfilePath} {get_current_time()}_ScreenShot.png")
         else:
-            screenshot.save(f"{logfilePath} {get_current_time()} error.png")
+            screenshot.save(f"{logfilePath} {get_current_time()}_ScreenShot.png")
 
     def goto_link(self, link):
         try:
