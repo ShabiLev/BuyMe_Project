@@ -23,7 +23,7 @@ timeout = 10
 
 def get_current_time():
     now = datetime.now()
-    cur_date_time = now.strftime("%d-%m-%Y %H:%M:%S")
+    cur_date_time = now.strftime("%d-%m-%Y_%H-%M-%S")
     return cur_date_time
 
 class BasePage:
@@ -40,11 +40,11 @@ class BasePage:
 
     def take_screenshot(self):
         screenshot = ImageGrab.grab()
-        if os.path.exists(f"{logfilePath} {get_current_time()}_ScreenShot.png"):
+        if os.path.exists(f"{logfilePath}{get_current_time()}_ScreenShot.png"):
             time.sleep(0.1)
-            screenshot.save(f"{logfilePath} {get_current_time()}_ScreenShot.png")
+            screenshot.save(f"{logfilePath}{get_current_time()}_ScreenShot.png")
         else:
-            screenshot.save(f"{logfilePath} {get_current_time()}_ScreenShot.png")
+            screenshot.save(f"{logfilePath}{get_current_time()}_ScreenShot.png")
 
     def goto_link(self, link):
         try:
@@ -84,11 +84,17 @@ class BasePage:
             logging.exception(str(e))
             self.take_screenshot()
 
-    def wait_and_get_elem_text(self, locator):
+    def wait_and_get_elem_text(self, locator, expected_text):
         try:
             text1 = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator))
             text = text1.text
-            return text
+            if expected_text not in text:
+                logging.error(f"String {expected_text} wasn't found in {text}")
+                self.take_screenshot()
+            else:
+                logging.info(f"Found String {expected_text} in {text}")
+                self.take_screenshot()
+                return text
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot()

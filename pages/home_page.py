@@ -10,7 +10,7 @@ class Constants:
     register = By.CSS_SELECTOR, "h1[class=bm-h1]"
     register_type = By.TAG_NAME
     register_value = 'span'
-
+    register_title = By.CLASS_NAME, "lightbox-head" # By.CSS_SELECTOR, "h1[class=bm-h1]"
     # login_email = By.ID, "ember1974"
     # login_password = By.ID, "ember1981"
     # login_button =
@@ -33,6 +33,9 @@ class HomePage(base):
 
     def click_on_register(self):
         base.wait_and_click_on_below_element(self, Constants.register, Constants.register_type, Constants.register_value)
+
+    def verify_title_Registration(self):
+        base.wait_and_get_elem_text(self,Constants.register_title, "הרשמה")
 
     def enter_first_name(self):
         base.wait_and_enter_text(self, Constants.register_first_name, 'firstName')

@@ -17,8 +17,8 @@ class TestBuyme(TestCase):
     def test_login_button(self):
         self.home_page.click_on_login()
         self.home_page.click_on_register()
-
-        # time.sleep(10)
+        self.home_page.verify_title_Registration()
+        # time.sleep(5)
 
     def tearDown(self):
         driver.quit()
