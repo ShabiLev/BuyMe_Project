@@ -14,19 +14,15 @@ class TestBuyme(TestCase):
     def setUp(self):
         self.home_page = HomePage(base_page.driver)
         self.register_page = Register(base_page.driver)
-        base.goto_link(driver, "https://buyme.co.il/")
+        # base.goto_link(driver, "https://buyme.co.il/")
+        driver.maximize_window()
 
-    def test_login_button(self):
+    def test_success_register(self):
+        base.goto_link(driver, "https://buyme.co.il/")
         self.home_page.click_on_login()
         self.home_page.click_on_register()
         self.home_page.verify_title_Registration()
-        # time.sleep(5)
-
-    # def test_success_register(self):
-    #     self.home_page.click_on_login()
-    #     self.home_page.click_on_register()
-    #     self.home_page.verify_title_Registration()
-    #     self.register_page.register_success()
+        self.register_page.register_success()
 
     def tearDown(self):
         driver.quit()

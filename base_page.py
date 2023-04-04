@@ -28,6 +28,8 @@ def get_current_time():
 
 class BasePage:
     # Configure logging to write to a file
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
     logging.basicConfig(
         filename=logfilePath + "BuyMe_log.txt",
         filemode='a',
