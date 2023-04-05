@@ -30,7 +30,14 @@ class TestBuyme(TestCase):
         self.home_page.click_on_login()
         self.home_page.click_on_register()
         self.home_page.verify_title_Registration()
-        self.register_page.register_fail()
+        self.register_page.register_fail_email()
+
+    def test_c_fail_password(self):
+        base.goto_link(driver, "https://buyme.co.il/")
+        self.home_page.click_on_login()
+        self.home_page.click_on_register()
+        self.home_page.verify_title_Registration()
+        self.register_page.register_fail_password()
 
     @classmethod
     def tearDownClass(self):
