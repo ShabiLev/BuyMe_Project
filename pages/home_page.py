@@ -25,4 +25,4 @@ class HomePage(base):
         base.wait_and_click_on_below_element(self, Constants.register, Constants.register_type, Constants.register_value)
 
     def verify_title_Registration(self):
-        base.wait_and_get_elem_text(self,Constants.register_title, "הרשמה")
+        base.wait_and_verify_text(self,Constants.register_title, "הרשמה")

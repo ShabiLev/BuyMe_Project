@@ -86,7 +86,7 @@ class BasePage:
             logging.exception(str(e))
             self.take_screenshot()
 
-    def wait_and_get_elem_text(self, locator, expected_text):
+    def wait_and_verify_text(self, locator, expected_text):
         try:
             text1 = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator))
             text = text1.text

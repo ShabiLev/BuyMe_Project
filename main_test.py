@@ -11,21 +11,27 @@ class TestBuyme(TestCase):
     def __init__(self, methodname: str = ...):
         super().__init__(methodname)
 
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         self.home_page = HomePage(base_page.driver)
         self.register_page = Register(base_page.driver)
         # base.goto_link(driver, "https://buyme.co.il/")
         driver.maximize_window()
 
-    def test_success_register(self):
+    def test_a_success_register(self):
         base.goto_link(driver, "https://buyme.co.il/")
         self.home_page.click_on_login()
         self.home_page.click_on_register()
         self.home_page.verify_title_Registration()
         self.register_page.register_success()
 
-    def tearDown(self):
-        driver.quit()
+    def test_b_fail_register(self):
+        base.goto_link(driver, "https://buyme.co.il/")
+        self.home_page.click_on_login()
+        self.home_page.click_on_register()
+        self.home_page.verify_title_Registration()
+        self.register_page.register_fail()
 
-# if __name__ == '__main__':
-#     unittest.main()
+    @classmethod
+    def tearDownClass(self):
+        driver.quit()

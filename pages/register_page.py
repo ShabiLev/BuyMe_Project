@@ -11,6 +11,7 @@ class Constants:
     register_password = By.ID, "valPass"
     register_password_conf = By.XPATH, "//input[@placeholder='אימות סיסמה']"
     agree_radio = By.XPATH, "//span[@class='circle']"
+    submit = By.XPATH, "//button[@type='submit']"
 
 
 class Register(base):
@@ -19,10 +20,17 @@ class Register(base):
         base.__init__(self, driver)
         self.driver = base_page.driver
 
+    def register_fail(self):
+        base.wait_and_enter_text(self, Constants.register_first_name, "register_fail")
+        base.wait_and_enter_text(self, Constants.register_email, "test")
+        base.wait_and_enter_text(self, Constants.register_password, "Password")
+        base.wait_and_enter_text(self, Constants.register_password_conf, "Password2")
+        base.wait_and_click_on_element(self, Constants.agree_radio)
+        base.wait_and_click_on_element(self,Constants.submit)
+
     def register_success(self):
-        base.wait_and_enter_text(self, Constants.register_first_name, "BlaBla")
+        base.wait_and_enter_text(self, Constants.register_first_name, "register_success")
         base.wait_and_enter_text(self, Constants.register_email, "test@email.com")
         base.wait_and_enter_text(self, Constants.register_password, "Password")
         base.wait_and_enter_text(self, Constants.register_password_conf, "Password2")
         base.wait_and_click_on_element(self, Constants.agree_radio)
-        time.sleep(2)
