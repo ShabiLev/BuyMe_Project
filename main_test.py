@@ -1,4 +1,5 @@
 import json
+import time
 from unittest import TestCase
 import base_page
 from base_page import BasePage as base, driver
@@ -32,11 +33,19 @@ class TestBuyme(TestCase):
         self.register_page.register_fail_email()
 
     def test_c_fail_password(self):
-        base.goto_link(driver, "https://buyme.co.il/")
+        base.goto_link(driver, base_page.datajson['urls']['buymehome'])
         self.home_page.click_on_login()
         self.home_page.click_on_register()
         self.home_page.verify_title_Registration()
         self.register_page.register_fail_password()
+
+    # def test_d_select_gift(self):
+    #     base.goto_link(driver, base_page.datajson['urls']['buymehome'])
+    #     self.home_page.search_for_present()
+
+    def test_x_scroll_to_bottom(self):
+        base.goto_link(driver, base_page.datajson['urls']['buymehome'])
+        self.home_page.scroll_to_bottom_screen()
 
     @classmethod
     def tearDownClass(self):

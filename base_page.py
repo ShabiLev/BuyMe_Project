@@ -5,6 +5,8 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.relative_locator import locate_with
+# from selenium.webdriver.support.select import Select
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
@@ -19,6 +21,11 @@ timeout = datajson["variables"]['timeout']
 
 
 def get_current_time():
+    """
+    Returns the current Time in the format of dd-mm-YYYY_H-M-S
+    For example: 31-06-2023_18-25-48
+    06-04-2023_18-26-14.
+    """
     now = datetime.now()
     cur_date_time = now.strftime("%d-%m-%Y_%H-%M-%S")
     return cur_date_time
@@ -37,13 +44,22 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    def take_screenshot(self):
+    def take_screenshot(self, comment=None):
+        """
+        Capturing a screenshot by using the "ImageGrab" library from PIL.
+
+        :param comment: NOT Mandatory, the extra text String to add to the image File Name.
+
+        It automatically saves the screenshots to a pre-define logfilePath with
+
+        the current Time in the format of dd-mm-YYYY_H-M-S.
+        """
         screenshot = ImageGrab.grab()
-        if os.path.exists(f"{logfilePath}{get_current_time()}_ScreenShot.png"):
+        if os.path.exists(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png"):
             time.sleep(0.1)
-            screenshot.save(f"{logfilePath}{get_current_time()}_ScreenShot.png")
+            screenshot.save(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png")
         else:
-            screenshot.save(f"{logfilePath}{get_current_time()}_ScreenShot.png")
+            screenshot.save(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png")
 
     def goto_link(self, link):
         try:
@@ -95,5 +111,37 @@ class BasePage:
                 self.take_screenshot()
                 return text
         except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot()
+
+    def wait_and_select_from_dropdown_by_text(self, locator, text):
+        try:
+            selector = WebDriverWait(driver, timeout).until(EC.visibility_of_element_located(locator))
+            selection = Select(selector)
+            selection.select_by_visible_text(text)
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot()
+
+    def scroll_webpage(self, direction: str) -> None:
+        """
+        Scroll the webpage up or down based on the provided direction.
+
+        :param direction: The direction to scroll the webpage.
+
+        Use 'up' to scroll to the top, and 'down' to scroll to the bottom.
+        """
+        try:
+            if direction == "up":
+                # Scroll to the top of the page
+                driver.execute_script("window.scrollTo(0, 0);")
+                self.take_screenshot()
+            elif direction == "down":
+                # Scroll to the bottom of the page
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(1)
+                self.take_screenshot("bottom")
+        except Exception as e:
+            # Invalid direction parameter
             logging.exception(str(e))
             self.take_screenshot()

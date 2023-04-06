@@ -15,7 +15,6 @@ class Constants:
     email_required_error = By.CLASS_NAME, "parsley-required"
     password_mismach_error = By.CLASS_NAME, "parsley-equalto"
 
-    drop_erea = By.XPATH, "//option[text()='אזור']"
 
 class Register(base):
 
