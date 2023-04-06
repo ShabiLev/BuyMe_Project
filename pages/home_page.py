@@ -8,7 +8,7 @@ class Constants:
     register = By.CSS_SELECTOR, "h1[class=bm-h1]"
     register_type = By.TAG_NAME
     register_value = 'span'
-    register_title = By.CLASS_NAME, "lightbox-head" # By.CSS_SELECTOR, "h1[class=bm-h1]"
+    register_title = By.CLASS_NAME, "lightbox-head"
 
 
 class HomePage(base):
