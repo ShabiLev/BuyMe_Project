@@ -1,24 +1,21 @@
 import os
 import time
+import json
 from datetime import datetime
-
-import allure
-from allure_commons.types import AttachmentType
-from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.relative_locator import locate_with
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
-import traceback
 from PIL import ImageGrab
 
-logfilePath = "C:\\Users\\" + os.getlogin() + "\\Downloads\\Python Automation Files\\BuyMe_Project\\Errors\\"
-driver = webdriver.Chrome(service=Service("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Drivers\\chromedriver_win32\\chromedriver.exe"))
 
-timeout = 10
+json_file = open("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Data.json", 'r')
+datajson = json.load(json_file)
+logfilePath = datajson['locations']['Errors']
+driver = webdriver.Chrome(service=Service(datajson['explorer_drivers']['chrome']))
+timeout = datajson["variables"]['timeout']
 
 
 def get_current_time():

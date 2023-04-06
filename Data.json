@@ -1,0 +1,16 @@
+{
+  "explorer_drivers": {
+    "chrome": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Drivers\\chromedriver",
+    "edge": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Drivers\\edgedriver_win64",
+    "firefox": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Drivers\\geckodriver-v0.33.0-win-aarch64"
+  },
+  "urls": {
+    "buymehome": "https://buyme.co.il/"
+  },
+  "locations": {
+    "Errors": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Errors"
+  },
+  "variables": {
+    "timeout": 10
+  }
+}
