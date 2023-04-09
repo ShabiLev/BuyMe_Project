@@ -9,8 +9,8 @@ class Constants:
     register_type = By.TAG_NAME
     register_value = 'span'
     register_title = By.CLASS_NAME, "lightbox-head"
-    drop_price = By.XPATH, "//option[text()='סכום']"
-    drop_erea = By.CSS_SELECTOR, '.selected-text[title="amount"]'
+    drop_price = By.XPATH, "//div[@class='dropdown'][@role='listbox'][@aria-label='סכום']"
+    drop_erea = By.XPATH, '//input[@placeholder="הכנס סכום"]' # '.selected-text[title="amount"]'
     drop_category = By.XPATH, "//option[text()='קטגוריה']"
     button_search = By.XPATH, "//option[text()='חיפוש']"
 
@@ -30,7 +30,8 @@ class HomePage(base):
         base.wait_and_verify_text(self, Constants.register_title, "הרשמה")
 
     def search_for_present(self):
-        base.wait_and_select_from_dropdown_by_text(self, Constants.drop_erea, "מרכז")
+        # base.wait_and_select_from_dropdown_by_text(self, Constants.drop_price, "סכום")
+        base.wait_and_click_on_element(self, Constants.drop_price)
 
     def scroll_to_bottom_screen(self):
         # Scroll to the bottom of the page
