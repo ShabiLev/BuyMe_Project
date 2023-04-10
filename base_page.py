@@ -13,7 +13,6 @@ from selenium.webdriver.support import expected_conditions as EC
 import logging
 from PIL import ImageGrab
 
-
 json_file = open("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Data.json", 'r')
 datajson = json.load(json_file)
 logfilePath = datajson['locations']['Errors']
@@ -30,6 +29,7 @@ def get_current_time():
     now = datetime.now()
     cur_date_time = now.strftime("%d-%m-%Y_%H-%M-%S")
     return cur_date_time
+
 
 class BasePage:
     # Configure logging to write to a file
@@ -71,15 +71,31 @@ class BasePage:
             self.take_screenshot("goto_link-Failed")
 
     def verify_link(self, link):
+        """
+        This function waits for the URL of the current page to match the provided link.
+        If the link does not match the URL after the provided timeout,
+        an exception is raised and a screenshot is taken.
+
+        :param link: the required url to be validated.
+        """
         try:
             WebDriverWait(driver, timeout).until(EC.url_to_be(link))
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("goto_link-Failed")
+            self.take_screenshot("verify_link-Failed")
 
     def wait_and_click_on_element(self, locator):
+        """
+        This function waits for an element located by the provided locator to be clickable,
+        and then clicks on it. If the element cannot be clicked within the provided timeout,
+        an exception is raised and a screenshot is taken.
+
+        :param locator: The Element to wait for.
+
+        exampe: login = By.CLASS_NAME, "value"
+        """
         try:
-            WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).click()
+            WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot("wait_and_click_on_element-Failed")
@@ -94,7 +110,7 @@ class BasePage:
 
     def wait_and_click_on_above_element(self, relative, elem_type, elem_val):
         try:
-            relative_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(relative))
+            relative_element = WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(relative))
             driver.find_element(locate_with(elem_type, elem_val).above(relative_element)).click()
         except Exception as e:
             logging.exception(str(e))
@@ -102,7 +118,7 @@ class BasePage:
 
     def wait_and_click_on_below_element(self, relative, elem_type, elem_val):
         try:
-            relative_element = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(relative))
+            relative_element = WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(relative))
             driver.find_element(locate_with(elem_type, elem_val).below(relative_element)).click()
         except Exception as e:
             logging.exception(str(e))
@@ -120,7 +136,7 @@ class BasePage:
             text1 = WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator))
             text = text1.text
             if expected_text not in text:
-                logging.error(f"String {expected_text} wasn't found in {text}")
+                logging.debug(f"String {expected_text} wasn't found in {text}")
                 self.take_screenshot(f"String_{expected_text}_wasn't_found")
             else:
                 logging.info(f"Found String {expected_text} in {text}")
