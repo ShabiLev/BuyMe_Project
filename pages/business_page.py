@@ -13,7 +13,7 @@ class Constants:
     box_text = By.XPATH, '555'
 
 
-class Business(base):
+class Business_page(base):
 
     def __init__(self, driver):
         base.__init__(self, driver)
