@@ -2,8 +2,11 @@ import os
 import time
 import json
 from datetime import datetime
+
+import pyautogui
 from selenium import webdriver
 from selenium.webdriver import ActionChains
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.relative_locator import locate_with
 # from selenium.webdriver.support.select import Select
@@ -15,8 +18,29 @@ from PIL import ImageGrab
 
 json_file = open("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Data.json", 'r')
 datajson = json.load(json_file)
-logfilePath = datajson['locations']['Errors']
+chrome_options = Options()
+
+    # --- Headless = window does not come up ---
+# chrome_options.add_argument("--headless")
+# driver = webdriver.Chrome(service=Service(datajson['explorer_drivers']['chrome']), options=chrome_options)
+
+    # --- Run on saucelabs ---
+# options = Options()
+# options.browser_version = 'latest'
+# options.platform_name = 'Windows 11'
+# sauce_options = {'username': "oauth-shabi231-5667f",
+#                  'browserName': 'Chrome',
+#                  'build': 'BuyMe testing',
+#                  'name': 'Remote Cloud testing',
+#                  'accessKey': 'e0f64cf3-daf1-46ad-8da4-e85eba76f940',
+#                  'version': '105'}
+#
+# options.set_capability('sauce:options', sauce_options)
+# sauce_url = "https://oauth-shabi231-5667f:e0f64cf3-daf1-46ad-8da4-e85eba76f940@ondemand.eu-central-1.saucelabs.com:443/wd/hub"
+# driver = webdriver.Remote(command_executor=sauce_url, options=options)
+
 driver = webdriver.Chrome(service=Service(datajson['explorer_drivers']['chrome']))
+logfilePath = datajson['locations']['Errors']
 timeout = datajson["variables"]['timeout']
 
 
@@ -201,3 +225,6 @@ class BasePage:
                 logging.exception(str(e))
         logging.error(f"Element {locator} wasn't found after {times} times")
         self.take_screenshot("scroll_and_search_element-Failed")
+
+    def click_on_location(self, locX, locY):
+        pyautogui.click(locX, locY)
