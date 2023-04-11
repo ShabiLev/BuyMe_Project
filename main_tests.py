@@ -1,3 +1,4 @@
+import time
 import unittest
 import base_page
 from base_page import BasePage as base, driver
@@ -6,9 +7,9 @@ from pages.register_page import Register
 from pages.business_page import Business
 
 
-class TestBuyme(unittest.TestCase):
+class TestLoginRegister(unittest.TestCase):
     @classmethod
-    def setUpClass(self):
+    def setUp(self):
         self.home_page = HomePage(base_page.driver)
         self.register_page = Register(base_page.driver)
         self.business_page = Business(base_page.driver)
@@ -35,25 +36,29 @@ class TestBuyme(unittest.TestCase):
         self.home_page.verify_title_Registration()
         self.register_page.register_fail_password()
 
-    # def test_d_select_gift(self):
-    #     base.goto_link(driver, base_page.datajson['urls']['buymehome'])
-    #     base.click_on_location(driver, 1100, 510)
-    #     # driver.get("https://buyme.co.il/search")
-    #     # driver.find_element(By.ID, "ember4547").click()
-    #     # # self.home_page.search_for_present()
-    #     # # self.business_page.click_on_add_giftcard()
-    #     time.sleep(30)
-
     # @classmethod
     # def tearDownClass(self):
     #     driver.quit()
+
+
+class TestFindGifts(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        self.home_page = HomePage(base_page.driver)
+        driver.maximize_window()
+
+    def test_g_search_for_present(self):
+        base.goto_link(driver, base_page.datajson['urls']['buymehome'])
+        self.home_page.search_for_present()
+
+        time.sleep(3)
 
 
 class TestGen(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.home_page = HomePage(base_page.driver)
-        # driver.maximize_window()
+        driver.maximize_window()
 
     def test_x_scroll_to_bottom(self):
         base.goto_link(driver, base_page.datajson['urls']['buymehome'])

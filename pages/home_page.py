@@ -9,10 +9,14 @@ class Constants:
     register_type = By.TAG_NAME
     register_value = 'span'
     register_title = By.CLASS_NAME, "lightbox-head"
-    drop_price = By.XPATH, "//div[@class='dropdown'][@role='listbox'][@aria-label='סכום']"
-    drop_erea = By.XPATH, '//input[@placeholder="הכנס סכום"]' # '.selected-text[title="amount"]'
-    drop_category = By.XPATH, "//option[text()='קטגוריה']"
-    button_search = By.XPATH, "//option[text()='חיפוש']"
+
+    drop_price = By.XPATH, "//span[@title='סכום']"
+    drop_amount = By.XPATH, "//span[contains(text(), '300-499')]"
+    drop_erea = By.XPATH, "//span[@title='אזור']"
+    drop_suberea = By.XPATH, "//span[text()='השרון']"
+    drop_category = By.XPATH, "//span[@title='קטגוריה']"
+    drop_subcategory = By.XPATH, "//span[contains(text(), 'גיפט קארד למסעדות')]"
+    button_find_gift = By.XPATH, "//a[@rel='nofollow']"
 
 class HomePage(base):
 
@@ -30,8 +34,14 @@ class HomePage(base):
         base.wait_and_verify_text(self, Constants.register_title, "הרשמה")
 
     def search_for_present(self):
-        # base.wait_and_select_from_dropdown_by_text(self, Constants.drop_price, "סכום")
         base.wait_and_click_on_element(self, Constants.drop_price)
+        base.wait_and_click_on_element(self, Constants.drop_amount)
+        base.wait_and_click_on_element(self, Constants.drop_erea)
+        base.wait_and_click_on_element(self, Constants.drop_suberea)
+        base.wait_and_click_on_element(self, Constants.drop_category)
+        base.wait_and_click_on_element(self, Constants.drop_subcategory)
+        base.wait_and_click_on_element(self, Constants.button_find_gift)
+
 
     def scroll_to_bottom_screen(self):
         # Scroll to the bottom of the page
