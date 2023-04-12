@@ -144,6 +144,11 @@ class BasePage:
             self.save_screenshot("wait_and_click_on_element-Failed")
 
     def wait_and_click_element_text(self, text):
+        """
+        This function searching for an Element by it's Text then Click it.
+
+        :param text: The Element's to search for.
+        """
         try:
             self.driver.find_element_by_link_text(text).click()
         except Exception as e:
@@ -167,6 +172,12 @@ class BasePage:
             self.save_screenshot("wait_and_click_on_below_element-Failed")
 
     def wait_and_enter_text(self, locator, text):
+        """
+        This function wait for an Element and input required text to it.
+
+        :param locator: the Element to look for.
+        :param text: The Element's text to enter.
+        """
         try:
             WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
         except Exception as e:
