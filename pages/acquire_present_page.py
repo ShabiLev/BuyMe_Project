@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 import base_page
 from base_page import BasePage as base
@@ -10,6 +12,14 @@ class Constants:
     event_value = By.XPATH, "//li[@value='11']"
     grace_text = By.XPATH, "//textarea[@data-parsley-group='voucher-greeting']"
     upload_image = By.XPATH, "//input[@type='file']"
+    continue_button = By.XPATH, "//button[@type='submit']"
+
+    select_now = By.XPATH, "//div[@class='ember-view button button-now selected']"
+    method_sms = By.XPATH, "//svg[@gtm='method-sms']"
+    mobile = By.XPATH, "//input[@data-parsley-mobile='mobile']"
+    sender_name = By.XPATH, "//input[@placeholder='שם שולח המתנה']"
+    sender_mobile = By.XPATH, "//input[@placeholder='מספר נייד']"
+
 
 
 class acquirePage(base):
@@ -30,3 +40,14 @@ class acquirePage(base):
     def upload_image(self):
         base.wait_and_click_on_element(self, Constants.upload_image)
         base.upload_file(self, Constants.upload_image, "Superman_symbol.png")
+        base.wait_and_click_on_element(self, Constants.continue_button)
+
+    def enter_order_details(self):
+        time.sleep(1)
+        self.driver.execute_script(f"window.scrollBy(0, 350);")
+        base.wait_and_click_on_element(self, Constants.select_now)
+        base.wait_and_click_on_element(self, Constants.method_sms)
+        base.wait_and_enter_text(self, Constants.mobile, "123456789")
+        base.wait_and_enter_text(self, Constants.sender_name, "Sender Name")
+        base.wait_and_enter_text(self, Constants.sender_mobile, "987654321")
+

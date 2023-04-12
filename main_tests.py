@@ -63,6 +63,7 @@ class TestFindGifts(unittest.TestCase):
         base.goto_link(driver, "https://buyme.co.il/money/752649?price=666")
         self.acquire_present_page.select_reciver()
         self.acquire_present_page.upload_image()
+        self.acquire_present_page.enter_order_details()
         time.sleep(200)
 
 

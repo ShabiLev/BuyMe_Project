@@ -360,3 +360,391 @@ Traceback (most recent call last):
     raise TimeoutException(message, screen, stacktrace)
 selenium.common.exceptions.TimeoutException: Message: 
 
+13:41:59, root ERROR Message: 
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+13:42:02, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+13:42:05, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 163, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+13:42:07, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 163, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+13:43:33, root ERROR Message: 
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+13:43:38, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+13:43:41, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 163, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+13:43:43, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 163, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x0117DCE3]
+	(No symbol) [0x011139D1]
+	(No symbol) [0x01024DA8]
+	(No symbol) [0x0105019F]
+	(No symbol) [0x010503AB]
+	(No symbol) [0x0107EE62]
+	(No symbol) [0x0106AF14]
+	(No symbol) [0x0107D57C]
+	(No symbol) [0x0106ACC6]
+	(No symbol) [0x01046F68]
+	(No symbol) [0x010480CD]
+	GetHandleVerifier [0x013F3832+2506274]
+	GetHandleVerifier [0x01429794+2727300]
+	GetHandleVerifier [0x0142E36C+2746716]
+	GetHandleVerifier [0x01226690+617600]
+	(No symbol) [0x0111C712]
+	(No symbol) [0x01121FF8]
+	(No symbol) [0x011220DB]
+	(No symbol) [0x0112C63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+13:47:42, root ERROR Message: 
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
+14:30:55, root ERROR Message: 
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+
