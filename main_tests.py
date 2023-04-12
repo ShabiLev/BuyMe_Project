@@ -1,6 +1,7 @@
 import time
 import unittest
 import base_page
+from PIL import Image
 from base_page import BasePage as base, driver
 from pages.home_page import HomePage
 from pages.register_page import Register
@@ -64,7 +65,7 @@ class TestFindGifts(unittest.TestCase):
         self.acquire_present_page.select_reciver()
         self.acquire_present_page.upload_image()
         self.acquire_present_page.enter_order_details()
-        time.sleep(200)
+        # time.sleep(200)
 
 
 class TestGen(unittest.TestCase):
@@ -74,7 +75,14 @@ class TestGen(unittest.TestCase):
         driver.maximize_window()
 
     # def test_x_print_element_size(self):
-    #     base.goto_link(driver, base_page.datajson['urls']['buymehome'])
+    #     driver.get("https://buyme.co.il/")
+    #     driver.save_screenshot('screenshot.png')
+    #
+    #     image = Image.open('screenshot.png')
+    #     roi = (100, 100, 500, 500)  # Adjust the coordinates to match the location and size of the splash screen
+    #     splash_screen_image = image.crop(roi)
+    #     size = splash_screen_image.size
+    #     print(size)
     #     time.sleep(30)
 
     def test_y_scroll_to_bottom(self):

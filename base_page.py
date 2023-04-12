@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.relative_locator import locate_with
 # from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import Select
@@ -15,6 +16,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import logging
 from PIL import ImageGrab
+
+
+username = os.getlogin() # Get the username of the current user
+file_path = os.path.join(os.path.expanduser("C:\\Users\\" + username), "\\Desktop\\", "example_file.txt")
 
 json_file = open("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Data.json", 'r')
 datajson = json.load(json_file)
@@ -69,7 +74,7 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
-    def take_screenshot(self, comment=None):
+    def save_screenshot(self, comment=None):
         """
         Capturing a screenshot by using the "ImageGrab" library from PIL.
 
@@ -102,7 +107,7 @@ class BasePage:
             time.sleep(0.5)
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("goto_link-Failed")
+            self.save_screenshot("goto_link-Failed")
 
     def verify_link(self, link):
         """
@@ -116,7 +121,7 @@ class BasePage:
             WebDriverWait(driver, timeout).until(EC.url_to_be(link))
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("verify_link-Failed")
+            self.save_screenshot("verify_link-Failed")
 
     def wait_and_click_on_element(self, locator):
         """
@@ -126,21 +131,21 @@ class BasePage:
 
         :param locator: The Element to wait for.
 
-        exampe: login = By.CLASS_NAME, "value"
+        exampe: locator = By.CLASS_NAME, "value"
         """
         try:
             WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
             time.sleep(0.1)
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_click_on_element-Failed")
+            self.save_screenshot("wait_and_click_on_element-Failed")
 
     def wait_and_click_element_text(self, text):
         try:
             self.driver.find_element_by_link_text(text).click()
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_click_element_text-Failed")
+            self.save_screenshot("wait_and_click_element_text-Failed")
 
     def wait_and_click_on_above_element(self, relative, elem_type, elem_val):
         try:
@@ -148,7 +153,7 @@ class BasePage:
             driver.find_element(locate_with(elem_type, elem_val).above(relative_element)).click()
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_click_on_above_element-Failed")
+            self.save_screenshot("wait_and_click_on_above_element-Failed")
 
     def wait_and_click_on_below_element(self, relative, elem_type, elem_val):
         try:
@@ -156,14 +161,14 @@ class BasePage:
             driver.find_element(locate_with(elem_type, elem_val).below(relative_element)).click()
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_click_on_below_element-Failed")
+            self.save_screenshot("wait_and_click_on_below_element-Failed")
 
     def wait_and_enter_text(self, locator, text):
         try:
             WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_enter_text-Failed")
+            self.save_screenshot("wait_and_enter_text-Failed")
 
     def wait_and_verify_text(self, locator, expected_text):
         try:
@@ -171,14 +176,14 @@ class BasePage:
             text = text1.text
             if expected_text not in text:
                 logging.debug(f"String {expected_text} wasn't found in {text}")
-                self.take_screenshot(f"String_{expected_text}_wasn't_found")
+                self.save_screenshot(f"String_{expected_text}_wasn't_found")
             else:
                 logging.info(f"Found String {expected_text} in {text}")
-                # self.take_screenshot("String_was_found")
+                # self.save_screenshot("String_was_found")
                 return text
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_verify_text-Failed")
+            self.save_screenshot("wait_and_verify_text-Failed")
 
     def wait_and_select_from_dropdown_by_text(self, locator, text):
         try:
@@ -187,7 +192,7 @@ class BasePage:
             selection.select_by_visible_text(text)
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("wait_and_select_from_dropdown_by_text-Failed")
+            self.save_screenshot("wait_and_select_from_dropdown_by_text-Failed")
 
     def scroll_webpage(self, direction: str) -> None:
         """
@@ -201,16 +206,16 @@ class BasePage:
             if direction == "up":
                 # Scroll to the top of the page
                 driver.execute_script("window.scrollTo(0, 0);")
-                self.take_screenshot("Scroll-Top")
+                self.save_screenshot("Scroll-Top")
             elif direction == "down":
                 # Scroll to the bottom of the page
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 time.sleep(1)
-                self.take_screenshot("Scroll-Bottom")
+                self.save_screenshot("Scroll-Bottom")
         except Exception as e:
             # Invalid direction parameter
             logging.exception(str(e))
-            self.take_screenshot("scroll_webpage-Failed")
+            self.save_screenshot("scroll_webpage-Failed")
 
     def scroll_search_and_click_element(self, locator, times):
         """
@@ -234,7 +239,7 @@ class BasePage:
                 self.driver.execute_script(f"window.scrollBy(0, {scroll_amount});")
                 logging.exception(str(e))
         logging.error(f"Element {locator} wasn't found after {times} times")
-        self.take_screenshot("scroll_and_search_element-Failed")
+        self.save_screenshot("scroll_and_search_element-Failed")
 
     def find_and_click_text_in_elements(self, locator_type, locator_value, element_text: str):
         """
@@ -253,7 +258,7 @@ class BasePage:
                     break
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("find_and_click_text_in_elements-Failed")
+            self.save_screenshot("find_and_click_text_in_elements-Failed")
 
     def clear_text(self, locator):
         """
@@ -265,7 +270,7 @@ class BasePage:
             WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(Keys.DELETE)
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("clear_text-Failed")
+            self.save_screenshot("clear_text-Failed")
 
     def upload_file(self, locator, file):
         """
@@ -282,7 +287,7 @@ class BasePage:
                 WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(datajson['locations']['Samples'] + file)
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("upload_file-Failed")
+            self.save_screenshot("upload_file-Failed")
     def get_element_size(self, locator):
         """
         This function waits for the URL of the current page to match the provided link.
@@ -293,13 +298,13 @@ class BasePage:
         """
         try:
             # self.goto_link(url)
-            WebDriverWait(driver, timeout).until(EC.invisibility_of_element_located((locator, "splash-screen")))
-            element = self.driver.find_element_by_id(locator)
+            # WebDriverWait(driver, timeout).until(EC.invisibility_of_element_located((locator, "splash-screen")))
+            element = driver.find_element(By.XPATH, locator)
             print(element.size)
             logging.info(f"Element {locator} size is {element.size}")
         except Exception as e:
             logging.exception(str(e))
-            self.take_screenshot("get_element_size-Failed")
+            self.save_screenshot("get_element_size-Failed")
 
     def click_on_location(self, locX, locY):
         pyautogui.click(locX, locY)

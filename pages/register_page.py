@@ -35,7 +35,7 @@ class Register(base):
         base.wait_and_click_on_element(self, Constants.submit)
         base.wait_and_verify_text(self, Constants.register_password, "ערך זה דרוש.")
         base.wait_and_verify_text(self, Constants.register_password_conf, "ערך זה דרוש.")
-        base.take_screenshot(self)
+        base.save_screenshot(self)
         base.wait_and_enter_text(self, Constants.register_password, "123456")
         base.wait_and_enter_text(self, Constants.register_password_conf, "12345")
         base.wait_and_click_on_element(self, Constants.submit)
