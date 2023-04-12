@@ -16,6 +16,7 @@ class Constants:
 
     select_now = By.XPATH, "//div[@class='ember-view button button-now selected']"
     method_sms = By.XPATH, "//svg[@gtm='method-sms']"
+    all_circles = By.XPATH, "//path[@class='circle']"
     mobile = By.XPATH, "//input[@data-parsley-mobile='mobile']"
     sender_name = By.XPATH, "//input[@placeholder='שם שולח המתנה']"
     sender_mobile = By.XPATH, "//input[@placeholder='מספר נייד']"

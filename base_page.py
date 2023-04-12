@@ -19,17 +19,20 @@ from PIL import ImageGrab
 
 
 username = os.getlogin() # Get the username of the current user
-file_path = os.path.join(os.path.expanduser("C:\\Users\\" + username), "\\Desktop\\", "example_file.txt")
+tmp_folder = "OneDrive - Ofakim Group"
+file_path = "C:\\Users\\" + username + "\\" + tmp_folder + "\\Desktop\\BuyMe_Project\\"
+# file_path = os.path.join(os.path.expanduser("C:\\Users\\" + username), "\\Desktop\\BuyMe_Project\\")
+# "C:\Users\shabil\OneDrive - Ofakim Group\Desktop\BuyMe_Project\Data.json"
 
-json_file = open("C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Data.json", 'r')
+json_file = open(f"{file_path}Data.json", 'r')
 datajson = json.load(json_file)
 chrome_options = Options()
 
-    # --- Headless = window does not come up ---
+# --- Headless = window does not come up ---
 # chrome_options.add_argument("--headless")
 # driver = webdriver.Chrome(service=Service(datajson['explorer_drivers']['chrome']), options=chrome_options)
 
-    # --- Run on saucelabs ---
+# --- Run on saucelabs ---
 # options = Options()
 # options.browser_version = 'latest'
 # options.platform_name = 'Windows 11'
@@ -61,18 +64,18 @@ def get_current_time():
 
 
 class BasePage:
+    def __init__(self, driver):
+        self.driver = driver
+
     # Configure logging to write to a file
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
     logging.basicConfig(
         filename=logfilePath + "BuyMe_log.txt",
         filemode='a',
-        format="%(asctime)s, %(name)s %(levelname)s %(message)s \n",
+        format="%(pastime)s, %(name)s %(levelname)s %(message)s \n",
         datefmt="%H:%M:%S",
         level=logging.ERROR)
-
-    def __init__(self, driver):
-        self.driver = driver
 
     def save_screenshot(self, comment=None):
         """
@@ -225,7 +228,6 @@ class BasePage:
 
         :param locator: The locator for the element to search for.
         :param times: The maximum number of times to scroll and search before logging an error.
-        :scroll_amount: The number of pixels to scroll on each attempt.
         """
         time.sleep(0.5)
         scroll_amount = 300
@@ -243,10 +245,11 @@ class BasePage:
 
     def find_and_click_text_in_elements(self, locator_type, locator_value, element_text: str):
         """
-        List all the elements based on the locator,
-        then check for every oneif it's text value equals to the expected text.
+        List all the elements based on the locator_type and locator_value
+        then check for every one if it's text value equals to the expected text.
 
-        :param locator: The locator for the element to search for.
+        :param locator_type: The element type to search for.
+        :param locator_value: The element value to search for.
         :param element_text: The expected text.
         """
         try:
@@ -276,7 +279,7 @@ class BasePage:
         """
         Locate an element then "send" it a file
         :param locator: The locator for the element to search for.
-        :param file: Enter FULL path of a file Or the file name under 'BuyMe_Project\Samples\'
+        :param file: Enter FULL path of a file Or the file name under 'BuyMe_Project\\Samples\'
         """
         relativePath = "c:"
         try:
@@ -288,13 +291,12 @@ class BasePage:
         except Exception as e:
             logging.exception(str(e))
             self.save_screenshot("upload_file-Failed")
+
     def get_element_size(self, locator):
         """
-        This function waits for the URL of the current page to match the provided link.
-        If the link does not match the URL after the provided timeout,
-        an exception is raised and a screenshot is taken.
+        This function search for an element and get it's size
 
-        :param url: the required url to be validated.
+        :param locator:
         """
         try:
             # self.goto_link(url)
