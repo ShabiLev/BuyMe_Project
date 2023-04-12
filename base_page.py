@@ -120,13 +120,13 @@ class BasePage:
         """
         try:
             WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+            time.sleep(0.1)
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot("wait_and_click_on_element-Failed")
 
     def wait_and_click_element_text(self, text):
         try:
-            # WebDriverWait(driver, timeout).until(EC.text_to_be_present_in_element_attribute(locator, attribute_=attr, text_=text)).click()
             self.driver.find_element_by_link_text(text).click()
         except Exception as e:
             logging.exception(str(e))
@@ -214,7 +214,7 @@ class BasePage:
         """
         time.sleep(0.5)
         scroll_amount = 300
-        driver.execute_script("window.scrollTo(0, 0)")
+        # driver.execute_script("window.scrollTo(0, 0)")
         for i in range(times):
             try:
                 WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator))
@@ -225,6 +225,51 @@ class BasePage:
                 logging.exception(str(e))
         logging.error(f"Element {locator} wasn't found after {times} times")
         self.take_screenshot("scroll_and_search_element-Failed")
+
+    def find_and_click_text_in_elements(self, locator_type, locator_value, element_text: str):
+        """
+        List all the elements based on the locator,
+        then check for every oneif it's text value equals to the expected text.
+
+        :param locator: The locator for the element to search for.
+        :param element_text: The expected text.
+        """
+        try:
+            elements = driver.find_elements(locator_type, locator_value)
+            time.sleep(0.1)
+            for element in elements:
+                if element_text in element.text:
+                    element.click()
+                    break
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot("find_and_click_text_in_elements-Failed")
+
+    def get_element_size(self, locator):
+        """
+        This function waits for the URL of the current page to match the provided link.
+        If the link does not match the URL after the provided timeout,
+        an exception is raised and a screenshot is taken.
+
+        :param url: the required url to be validated.
+        """
+        try:
+            # self.goto_link(url)
+            WebDriverWait(driver, timeout).until(EC.invisibility_of_element_located((locator, "splash-screen")))
+            element = self.driver.find_element_by_id(locator)
+            print(element.size)
+            logging.info(f"Element {locator} size is {element.size}")
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot("get_element_size-Failed")
+
+
+        driver.get(url)
+
+
+        # Get the size of the element
+        element = driver.find_element_by_id(locator)
+        size = element.size
 
     def click_on_location(self, locX, locY):
         pyautogui.click(locX, locY)

@@ -52,10 +52,8 @@ class TestFindGifts(unittest.TestCase):
     def test_g_search_for_present(self):
         base.goto_link(driver, base_page.datajson['urls']['buymehome'])
         self.home_page.search_for_present()
-        # self.gift_card_page.click_on_gift_card()
-
-        time.sleep(3)
-
+        self.gift_card_page.click_on_gift_card()
+        time.sleep(10)
 
 class TestGen(unittest.TestCase):
     @classmethod
@@ -63,7 +61,12 @@ class TestGen(unittest.TestCase):
         self.home_page = HomePage(base_page.driver)
         driver.maximize_window()
 
-    def test_x_scroll_to_bottom(self):
+    # def test_x_print_element_size(self):
+    #     base.goto_link(driver, base_page.datajson['urls']['buymehome'])
+    #     time.sleep(30)
+    #     base.get_element_size(self, )
+
+    def test_y_scroll_to_bottom(self):
         base.goto_link(driver, base_page.datajson['urls']['buymehome'])
         self.home_page.scroll_to_bottom_screen()
 

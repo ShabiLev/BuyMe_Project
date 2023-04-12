@@ -15,7 +15,7 @@ class Constants:
     drop_erea = By.XPATH, "//span[@title='אזור']"
     drop_suberea = By.XPATH, "//span[text()='השרון']"
     drop_category = By.XPATH, "//span[@title='קטגוריה']"
-    drop_subcategory = By.XPATH, "//span[contains(text(), 'גיפט קארד למסעדות')]"
+    drop_subcategory = By.XPATH, "//span[contains(text(), 'מסעדות שף')]"
     button_find_gift = By.XPATH, "//a[@rel='nofollow']"
 
 class HomePage(base):
@@ -34,6 +34,7 @@ class HomePage(base):
         base.wait_and_verify_text(self, Constants.register_title, "הרשמה")
 
     def search_for_present(self):
+        self.driver.execute_script(f"window.scrollBy(0, 300);")
         base.wait_and_click_on_element(self, Constants.drop_price)
         base.wait_and_click_on_element(self, Constants.drop_amount)
         base.wait_and_click_on_element(self, Constants.drop_erea)
