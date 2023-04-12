@@ -1,0 +1,174 @@
+10:30:46, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A2019F]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 162, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A2019F]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+10:37:08, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A2019F]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 162, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A2019F]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+10:45:43, root ERROR Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A2019F]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 162, in wait_and_enter_text
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(text)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A2019F]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+

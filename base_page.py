@@ -87,9 +87,19 @@ class BasePage:
             screenshot.save(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png")
 
     def goto_link(self, link):
+        """
+        This function open a provided url
+        then waits for the URL of the current page to match the provided link.
+
+        If the link does not match the URL after the provided timeout,
+        an exception is raised and a screenshot is taken.
+
+        :param link: the required url to be validated.
+        """
         try:
             driver.get(link)
             WebDriverWait(driver, timeout).until(EC.url_to_be(link))
+            time.sleep(0.5)
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot("goto_link-Failed")
