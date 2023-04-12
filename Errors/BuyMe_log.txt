@@ -172,3 +172,191 @@ Backtrace:
 	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
 	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
 
+11:29:08, root ERROR Message: invalid argument: 'using' must be a string
+  (Session info: chrome=111.0.5563.111)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A20292]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 260, in clear_text
+    driver.find_element(locator).clear()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 831, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: 'using' must be a string
+  (Session info: chrome=111.0.5563.111)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A20292]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+11:32:48, root ERROR Message: invalid argument: 'using' must be a string
+  (Session info: chrome=111.0.5563.111)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A20292]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 261, in clear_text
+    driver.find_element(locator).clear()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 831, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 440, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 245, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.InvalidArgumentException: Message: invalid argument: 'using' must be a string
+  (Session info: chrome=111.0.5563.111)
+Stacktrace:
+Backtrace:
+	(No symbol) [0x00B4DCE3]
+	(No symbol) [0x00AE39D1]
+	(No symbol) [0x009F4DA8]
+	(No symbol) [0x00A20292]
+	(No symbol) [0x00A203AB]
+	(No symbol) [0x00A4EE62]
+	(No symbol) [0x00A3AF14]
+	(No symbol) [0x00A4D57C]
+	(No symbol) [0x00A3ACC6]
+	(No symbol) [0x00A16F68]
+	(No symbol) [0x00A180CD]
+	GetHandleVerifier [0x00DC3832+2506274]
+	GetHandleVerifier [0x00DF9794+2727300]
+	GetHandleVerifier [0x00DFE36C+2746716]
+	GetHandleVerifier [0x00BF6690+617600]
+	(No symbol) [0x00AEC712]
+	(No symbol) [0x00AF1FF8]
+	(No symbol) [0x00AF20DB]
+	(No symbol) [0x00AFC63B]
+	BaseThreadInitThunk [0x75F800F9+25]
+	RtlGetAppContainerNamedObjectPath [0x777A7BBE+286]
+	RtlGetAppContainerNamedObjectPath [0x777A7B8E+238]
+
+11:45:03, root ERROR WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 277, in upload_file
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(file_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 69, in _predicate
+    return driver.find_element(*locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given
+11:47:26, root ERROR WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 277, in upload_file
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(file_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 69, in _predicate
+    return driver.find_element(*locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given
+12:07:57, root ERROR WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 277, in upload_file
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(file_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 69, in _predicate
+    return driver.find_element(*locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given
+13:11:18, root ERROR WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 282, in upload_file
+    WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(datajson['locations']['Samples'] + file)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 86, in until
+    value = method(self._driver)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 69, in _predicate
+    return driver.find_element(*locator)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: WebDriver.find_element() takes from 1 to 3 positional arguments but 22 were given
+13:19:54, root ERROR Message: 
+ 
+Traceback (most recent call last):
+  File "C:\Users\shabil\Downloads\Python Automation Files\BuyMe_Project\base_page.py", line 132, in wait_and_click_on_element
+    WebDriverWait(driver, timeout).until(EC.element_to_be_clickable(locator)).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\shabil\AppData\Local\pypoetry\Cache\virtualenvs\buyme-project-Kmx6Pdi--py3.11\Lib\site-packages\selenium\webdriver\support\wait.py", line 95, in until
+    raise TimeoutException(message, screen, stacktrace)
+selenium.common.exceptions.TimeoutException: Message: 
+

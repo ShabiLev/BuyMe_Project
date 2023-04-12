@@ -5,7 +5,7 @@ from datetime import datetime
 
 import pyautogui
 from selenium import webdriver
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.relative_locator import locate_with
@@ -255,6 +255,34 @@ class BasePage:
             logging.exception(str(e))
             self.take_screenshot("find_and_click_text_in_elements-Failed")
 
+    def clear_text(self, locator):
+        """
+        Locate an element then select all text in it and delete it by {Ctrl + "a" + Delete}
+        :param locator: The locator for the element to search for.
+        """
+        try:
+            WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(Keys.CONTROL + "a")
+            WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(Keys.DELETE)
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot("clear_text-Failed")
+
+    def upload_file(self, locator, file):
+        """
+        Locate an element then "send" it a file
+        :param locator: The locator for the element to search for.
+        :param file: Enter FULL path of a file Or the file name under 'BuyMe_Project\Samples\'
+        """
+        relativePath = "c:"
+        try:
+            # base.upload_file(self, Constants.upload_image, logical + "\\Superman_symbol.png")
+            if relativePath in file:
+                WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(file)
+            else:
+                WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator)).send_keys(datajson['locations']['Samples'] + file)
+        except Exception as e:
+            logging.exception(str(e))
+            self.take_screenshot("upload_file-Failed")
     def get_element_size(self, locator):
         """
         This function waits for the URL of the current page to match the provided link.
@@ -272,14 +300,6 @@ class BasePage:
         except Exception as e:
             logging.exception(str(e))
             self.take_screenshot("get_element_size-Failed")
-
-
-        driver.get(url)
-
-
-        # Get the size of the element
-        element = driver.find_element_by_id(locator)
-        size = element.size
 
     def click_on_location(self, locX, locY):
         pyautogui.click(locX, locY)

@@ -8,7 +8,8 @@
     "buymehome": "https://buyme.co.il/"
   },
   "locations": {
-    "Errors": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Errors\\"
+    "Errors": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Errors\\",
+    "Samples": "C:\\Users\\shabil\\Downloads\\Python Automation Files\\BuyMe_Project\\Samples\\"
   },
   "variables": {
     "timeout": 2

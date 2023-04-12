@@ -6,6 +6,7 @@ from pages.home_page import HomePage
 from pages.register_page import Register
 from pages.business_page import Business_page
 from pages.gift_cards_page import giftcardsPage
+from pages.acquire_present_page import acquirePage
 
 
 class TestLoginRegister(unittest.TestCase):
@@ -47,15 +48,22 @@ class TestFindGifts(unittest.TestCase):
     def setUpClass(self):
         self.home_page = HomePage(base_page.driver)
         self.gift_card_page = giftcardsPage(base_page.driver)
+        self.acquire_present_page = acquirePage(base_page.driver)
         driver.maximize_window()
 
     def test_g_search_for_present(self):
         base.goto_link(driver, base_page.datajson['urls']['buymehome'])
         self.home_page.search_for_present()
 
-    def test_h_select_cars(self):
-        base.goto_link(self, "https://buyme.co.il/search?budget=4&category=16&region=2835")
+    def test_h_select_cards(self):
+        base.goto_link(driver, "https://buyme.co.il/search?budget=4&category=16&region=2835")
         self.gift_card_page.click_on_gift_card()
+
+    def test_j_acquire_gift(self):
+        base.goto_link(driver, "https://buyme.co.il/money/752649?price=666")
+        self.acquire_present_page.select_reciver()
+        self.acquire_present_page.upload_image()
+        time.sleep(200)
 
 
 class TestGen(unittest.TestCase):
