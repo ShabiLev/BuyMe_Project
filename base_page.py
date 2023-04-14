@@ -5,7 +5,7 @@ from datetime import datetime
 
 import pyautogui
 from selenium import webdriver
-from selenium.webdriver import ActionChains, Keys
+from selenium.webdriver import ActionChains, Keys, DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -17,13 +17,10 @@ from selenium.webdriver.support import expected_conditions as EC
 import logging
 from PIL import ImageGrab
 
-
-username = os.getlogin() # Get the username of the current user
+# Get the username of the current user
+username = os.getlogin()
 tmp_folder = "OneDrive - Ofakim Group"
 file_path = "C:\\Users\\" + username + "\\" + tmp_folder + "\\Desktop\\BuyMe_Project\\"
-# file_path = os.path.join(os.path.expanduser("C:\\Users\\" + username), "\\Desktop\\BuyMe_Project\\")
-# "C:\Users\shabil\OneDrive - Ofakim Group\Desktop\BuyMe_Project\Data.json"
-
 json_file = open(f"{file_path}Data.json", 'r')
 datajson = json.load(json_file)
 chrome_options = Options()
@@ -48,7 +45,7 @@ chrome_options = Options()
 # driver = webdriver.Remote(command_executor=sauce_url, options=options)
 
 driver = webdriver.Chrome(service=Service(datajson['explorer_drivers']['chrome']))
-logfilePath = datajson['locations']['Errors']
+ErrorsFilePath = datajson['locations']['Errors']
 timeout = datajson["variables"]['timeout']
 
 
@@ -67,15 +64,17 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
+    chrome_options = Options()
+
     # Configure logging to write to a file
     logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
+    # logger.setLevel(logging.INFO)
     logging.basicConfig(
-        filename=logfilePath + "BuyMe_log.txt",
+        filename=ErrorsFilePath + "BuyMe_log.txt",
         filemode='a',
-        format="%(pastime)s, %(name)s %(levelname)s %(message)s \n",
+        format="%(asctime)s, %(name)s %(levelname)s %(message)s \n",
         datefmt="%H:%M:%S",
-        level=logging.ERROR)
+        level=logging.INFO)
 
     def save_screenshot(self, comment=None):
         """
@@ -88,11 +87,11 @@ class BasePage:
         the current Time in the format of dd-mm-YYYY_H-M-S.
         """
         screenshot = ImageGrab.grab()
-        if os.path.exists(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png"):
+        if os.path.exists(f"{ErrorsFilePath}{get_current_time()}_{comment}_ScreenShot.png"):
             time.sleep(0.1)
-            screenshot.save(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png")
+            screenshot.save(f"{ErrorsFilePath}{get_current_time()}_{comment}_ScreenShot.png")
         else:
-            screenshot.save(f"{logfilePath}{get_current_time()}_{comment}_ScreenShot.png")
+            screenshot.save(f"{ErrorsFilePath}{get_current_time()}_{comment}_ScreenShot.png")
 
     def goto_link(self, link):
         """
@@ -303,21 +302,54 @@ class BasePage:
             logging.exception(str(e))
             self.save_screenshot("upload_file-Failed")
 
-    def get_element_size(self, locator):
+    def get_element_size(self, locator_type, locator_value):
         """
         This function search for an element and get it's size
 
         :param locator:
         """
         try:
-            # self.goto_link(url)
-            # WebDriverWait(driver, timeout).until(EC.invisibility_of_element_located((locator, "splash-screen")))
-            element = driver.find_element(By.XPATH, locator)
-            print(element.size)
-            logging.info(f"Element {locator} size is {element.size}")
+            # WebDriverWait(driver, timeout).until(EC.invisibility_of_element_located(locator))
+            element = driver.find_element(locator_type, locator_value)
+            element_size = element.size
+            print(element_size)
+            logging.info(f"Element {locator_type, locator_value} size is {element_size}")
+            logging.info("test")
         except Exception as e:
             logging.exception(str(e))
             self.save_screenshot("get_element_size-Failed")
 
-    def click_on_location(self, locX, locY):
-        pyautogui.click(locX, locY)
+    def chrome_subtree_modifications(self):
+        chrome_options.add_argument("--remote-debugging-port=9222")
+
+        # Define the desired capabilities
+        caps = DesiredCapabilities.CHROME.copy()
+        caps['goog:loggingPrefs'] = {'browser': 'ALL', 'performance': 'ALL'}
+        caps['goog:chromeOptions'] = {'w3c': True, 'args': ['--disable-extensions']}
+        caps['pageLoadStrategy'] = 'none'
+        caps['unexpectedAlertBehaviour'] = 'dismiss'
+        caps['loggingPrefs'] = {'performance': 'ALL'}
+
+        # Start the ChromeDriver service
+        chrome_service = Service(executable_path=datajson['explorer_drivers']['chrome'])
+
+        # Start the ChromeDriver instance with the defined options and capabilities
+        driver = webdriver.Chrome(service=chrome_service, options=chrome_options, desired_capabilities=caps)
+
+        # Connect to the DevTools instance
+        driver.execute_cdp_cmd('Page.enable', {})
+        driver.execute_cdp_cmd('Network.setRequestInterception', {
+            'patterns': [
+                {
+                    'urlPattern': '*',
+                    'resourceType': 'Document',
+                    'interceptionStage': 'HeadersReceived'
+                }
+            ]
+        })
+        driver.execute_cdp_cmd('Debugger.enable', {})
+        driver.execute_cdp_cmd('Debugger.setBreakpointsActive', {'active': True})
+
+    def click_on_location(self, loc_x, loc_y):
+        pyautogui.click(loc_x, loc_y)
+

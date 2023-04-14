@@ -1,5 +1,8 @@
 import time
 import unittest
+
+from selenium.webdriver.common.by import By
+
 import base_page
 from PIL import Image
 from base_page import BasePage as base, driver
@@ -74,20 +77,14 @@ class TestGen(unittest.TestCase):
         self.home_page = HomePage(base_page.driver)
         driver.maximize_window()
 
-    # def test_x_print_element_size(self):
-    #     driver.get("https://buyme.co.il/")
-    #     driver.save_screenshot('screenshot.png')
-    #
-    #     image = Image.open('screenshot.png')
-    #     roi = (100, 100, 500, 500)  # Adjust the coordinates to match the location and size of the splash screen
-    #     splash_screen_image = image.crop(roi)
-    #     size = splash_screen_image.size
-    #     print(size)
-    #     time.sleep(30)
+    def test_x_get_spinner_size(self):
+        # base.goto_link(driver, base_page.datajson['urls']['buymehome'])
+        self.home_page.get_spinner_size()
 
     def test_y_scroll_to_bottom(self):
         base.goto_link(driver, base_page.datajson['urls']['buymehome'])
         self.home_page.scroll_to_bottom_screen()
+
 
     # @classmethod
     # def tearDownClass(self):

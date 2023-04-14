@@ -1,3 +1,4 @@
+from selenium.webdriver.chrome import webdriver
 from selenium.webdriver.common.by import By
 import base_page
 from base_page import BasePage as base
@@ -17,6 +18,11 @@ class Constants:
     drop_category = By.XPATH, "//span[@title='קטגוריה']"
     drop_subcategory = By.XPATH, "//span[contains(text(), 'מסעדות שף')]"
     button_find_gift = By.XPATH, "//a[@rel='nofollow']"
+
+    spinner_type = By.CLASS_NAME #By.XPATH
+    spinner_value = "spinner" #'//div[@class="spinner"]'
+    spinner = By.CLASS_NAME, 'spinner'#By.XPATH, '//div[@class="spinner"]' #"//*[@id='ember964']" #"//*[@id='app-loading-img']" # "spinner"xpath///*[@id="app-loading-img"]/div
+
 
 class HomePage(base):
 
@@ -43,7 +49,13 @@ class HomePage(base):
         base.wait_and_click_on_element(self, Constants.drop_subcategory)
         base.wait_and_click_on_element(self, Constants.button_find_gift)
 
-
     def scroll_to_bottom_screen(self):
         # Scroll to the bottom of the page
         base.scroll_webpage(self, "down")
+
+    def get_spinner_size(self):
+        base.goto_link(self, base_page.datajson['urls']['buymehome'])
+        base.chrome_subtree_modifications(self)
+        base_page.driver.refresh()
+        base.get_element_size(self, Constants.spinner_type, Constants.spinner_value)
+
