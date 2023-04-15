@@ -376,7 +376,7 @@ class BasePage:
             try:
                 color_name = webcolors.rgb_to_name(color_tuple)
             except ValueError:
-                color_name = color_tmp
+                color_name = color_tuple
             characteristicsdict['Color'] = color_name
             print(characteristicsdict)
             logging.info(f"Element {locator}:\nsize is {characteristicsdict['Size']}\nColor is: {characteristicsdict['Color']}")
