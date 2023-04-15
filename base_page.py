@@ -3,7 +3,9 @@ import time
 import json
 from datetime import datetime
 
+import allure
 import pyautogui
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver import ActionChains, Keys, DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
@@ -312,6 +314,7 @@ class BasePage:
             # WebDriverWait(driver, timeout).until(EC.invisibility_of_element_located(locator))
             element = driver.find_element(locator_type, locator_value)
             element_size = element.size
+            allure.attach(driver.get_screenshot_as_png(), name="get_element_size", attachment_type=AttachmentType.PNG)
             print(element_size)
             logging.info(f"Element {locator_type, locator_value} size is {element_size}")
             logging.info("test")
