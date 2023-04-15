@@ -21,6 +21,8 @@ class Constants:
     sender_name = By.XPATH, "//input[@placeholder='שם שולח המתנה']"
     sender_mobile = By.XPATH, "//input[@placeholder='מספר נייד']"
 
+    # whom = By.XPATH, "//div[@class='number'][contains(text(), '1')]"
+    whom = By.CSS_SELECTOR, '.step.active .label'
 
 
 class acquirePage(base):
@@ -52,3 +54,5 @@ class acquirePage(base):
         base.wait_and_enter_text(self, Constants.sender_name, "Sender Name")
         base.wait_and_enter_text(self, Constants.sender_mobile, "987654321")
 
+    def element_characteristics(self):
+        base.get_element_characteristics(self, Constants.whom)

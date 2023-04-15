@@ -75,7 +75,12 @@ class TestGen(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         self.home_page = HomePage(base_page.driver)
+        self.acquire_page = acquirePage(base_page.driver)
         driver.maximize_window()
+
+    def test_r_get_element_characteristics(self):
+        base.goto_link(driver, "https://buyme.co.il/money/13438757?price=777")
+        self.acquire_page.element_characteristics()
 
     def test_x_get_spinner_size(self):
         # base.goto_link(driver, base_page.datajson['urls']['buymehome'])

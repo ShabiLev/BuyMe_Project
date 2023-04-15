@@ -2,9 +2,10 @@ import os
 import time
 import json
 from datetime import datetime
-
+import re
 import allure
 import pyautogui
+import webcolors
 from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver import ActionChains, Keys, DesiredCapabilities
@@ -356,3 +357,29 @@ class BasePage:
     def click_on_location(self, loc_x, loc_y):
         pyautogui.click(loc_x, loc_y)
 
+    def get_element_characteristics(self, locator):
+        """
+        This function get some of the element's characteristics
+
+        :param :
+        """
+        characteristicsdict = {}
+        try:
+            WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator))
+            locator_type, locator_value = locator
+            element = driver.find_element(locator_type, locator_value)
+            # element_size = element.size
+            characteristicsdict['Size'] = str(element.size)
+            color_tmp = element.value_of_css_property('color')
+            color_list = color_tmp.strip('rgba()').split(',')
+            color_tuple = tuple(int(i) for i in color_list[:3])
+            try:
+                color_name = webcolors.rgb_to_name(color_tuple)
+            except ValueError:
+                color_name = color_tmp
+            characteristicsdict['Color'] = color_name
+            print(characteristicsdict)
+            logging.info(f"Element {locator}:\nsize is {characteristicsdict['Size']}\nColor is: {characteristicsdict['Color']}")
+        except Exception as e:
+            logging.exception(str(e))
+            self.save_screenshot("get_element_size-Failed")
